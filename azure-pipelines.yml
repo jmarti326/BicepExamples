@@ -37,7 +37,7 @@ stages:
     dependsOn: Deploy
     jobs:
       - job: CleanUp
-        dependsOn: Deploy
+        # dependsOn: Deploy
         timeoutInMinutes: 4320 # job times out in 3 days
         steps:
           - task: AzureCLI@2
