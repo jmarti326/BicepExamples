@@ -12,7 +12,7 @@ param ipSubnets array
 
 resource vnet 'Microsoft.Network/virtualNetworks@2022-01-01' = {
   name: vnetName
-  location: location
+  //location: location
   tags: tags
   properties: {
     addressSpace: {
