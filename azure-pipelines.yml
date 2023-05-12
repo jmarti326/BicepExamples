@@ -21,7 +21,7 @@ jobs:
           resourceGroupName: 'opc-ipr-demo-test'
           location: 'East US 2'
           templateLocation: 'Linked artifact'
-          csmFile: 'Main.bicep'
+          csmFile: 'Deploy/Main.bicep'
           csmParametersFile: 'Main.parameters.json'
           deploymentMode: 'Validation'
 
