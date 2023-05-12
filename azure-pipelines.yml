@@ -8,10 +8,10 @@ trigger: none
 pool:
   vmImage: ubuntu-latest
 
-# variables:
-#   RG: 'opc-ipr-demo-test-123'
-#   subscriptionId: 'fff26635-eb9b-47b8-9d09-02a54644216a'
-#   azResourceManagerConnection: 'CSA Internal Subscription(fff26635-eb9b-47b8-9d09-02a54644216a)'
+variables:
+  RG: $(RG)
+  subscriptionId: $(subscriptionId)
+  azResourceManagerConnection: $(azResourceManagerConnection)
 
 stages:
   - stage: Deploy
