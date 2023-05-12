@@ -8,10 +8,10 @@ trigger: none
 pool:
   vmImage: ubuntu-latest
 
-# variables:
-#   RG: $(RG)
-#   subscriptionId: $(subscriptionId)
-#   azResourceManagerConnection: $(azResourceManagerConnection)
+variables:
+  RG: 'opc-ipr-demo-test-123'
+  subscriptionId: 'fff26635-eb9b-47b8-9d09-02a54644216a'
+  azResourceManagerConnection: 'CSA Internal Subscription(fff26635-eb9b-47b8-9d09-02a54644216a)'
 
 stages:
   - stage: Deploy
@@ -23,10 +23,10 @@ stages:
             displayName: 'Deploy Bicep Files'
             inputs:
               deploymentScope: 'Resource Group'
-              azureResourceManagerConnection: $(env:azResourceManagerConnection)
-              subscriptionId: $(env:subscriptionId)
+              azureResourceManagerConnection: $(azResourceManagerConnection)
+              subscriptionId: $(subscriptionId)
               action: 'Create Or Update Resource Group'
-              resourceGroupName: $(env:RG)
+              resourceGroupName: $(RG)
               location: 'East US 2'
               templateLocation: 'Linked artifact'
               csmFile: './Deploy/Main.bicep'
