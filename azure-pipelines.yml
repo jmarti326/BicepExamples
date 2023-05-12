@@ -22,7 +22,7 @@ jobs:
           location: 'East US 2'
           templateLocation: 'Linked artifact'
           csmFile: './Deploy/Main.bicep'
-          csmParametersFile: 'Main.parameters.json'
+          csmParametersFile: './Deploy/Main.parameters.json'
           deploymentMode: 'Validation'
 
 # steps:
