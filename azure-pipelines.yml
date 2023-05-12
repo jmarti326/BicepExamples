@@ -8,11 +8,28 @@ trigger: none
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+jobs:
+  - job: Deploy
+    steps:
+      - task: AzureResourceManagerTemplateDeployment@3
+        displayName: 'Deploy Bicep Files'
+        inputs:
+          deploymentScope: 'Resource Group'
+          azureResourceManagerConnection: 'CSA Internal Subscription(fff26635-eb9b-47b8-9d09-02a54644216a)'
+          subscriptionId: 'fff26635-eb9b-47b8-9d09-02a54644216a'
+          action: 'Create Or Update Resource Group'
+          resourceGroupName: 'opc-ipr-demo-test'
+          location: 'East US 2'
+          templateLocation: 'Linked artifact'
+          csmFile: 'Main.bicep'
+          csmParametersFile: 'Main.parameters.json'
+          deploymentMode: 'Validation'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+# steps:
+# - script: echo Hello, world!
+#   displayName: 'Run a one-line script'
+
+# - script: |
+#     echo Add other tasks to build, test, and deploy your project.
+#     echo See https://aka.ms/yaml
+#   displayName: 'Run a multi-line script'
