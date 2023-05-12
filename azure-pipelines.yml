@@ -8,10 +8,10 @@ trigger: none
 pool:
   vmImage: ubuntu-latest
 
-variables:
-  RG: $(RG)
-  subscriptionId: $(subscriptionId)
-  azResourceManagerConnection: $(azResourceManagerConnection)
+# variables:
+#   RG: $(RG)
+#   subscriptionId: $(subscriptionId)
+#   azResourceManagerConnection: $(azResourceManagerConnection)
 
 stages:
   - stage: Deploy
@@ -23,10 +23,10 @@ stages:
             displayName: 'Deploy Bicep Files'
             inputs:
               deploymentScope: 'Resource Group'
-              azureResourceManagerConnection: $(azResourceManagerConnection)
-              subscriptionId: $(subscriptionId)
+              azureResourceManagerConnection: $(env:azResourceManagerConnection)
+              subscriptionId: $(env:subscriptionId)
               action: 'Create Or Update Resource Group'
-              resourceGroupName: $(RG)
+              resourceGroupName: $(env:RG)
               location: 'East US 2'
               templateLocation: 'Linked artifact'
               csmFile: './Deploy/Main.bicep'
