@@ -10,6 +10,9 @@ pool:
 
 variables:
   RG: 'opc-ipr-demo-test-123'
+  subscriptionId: 'fff26635-eb9b-47b8-9d09-02a54644216a'
+  azResourceManagerConnection: 'CSA Internal Subscription(fff26635-eb9b-47b8-9d09-02a54644216a)'
+
 stages:
   - stage: Deploy
     displayName: 'Deploy Resources'
@@ -20,8 +23,8 @@ stages:
             displayName: 'Deploy Bicep Files'
             inputs:
               deploymentScope: 'Resource Group'
-              azureResourceManagerConnection: 'CSA Internal Subscription(fff26635-eb9b-47b8-9d09-02a54644216a)'
-              subscriptionId: 'fff26635-eb9b-47b8-9d09-02a54644216a'
+              azureResourceManagerConnection: $(azResourceManagerConnection)
+              subscriptionId: $(subscriptionId)
               action: 'Create Or Update Resource Group'
               resourceGroupName: $(RG)
               location: 'East US 2'
