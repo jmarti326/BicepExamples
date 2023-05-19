@@ -18,7 +18,12 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
   
-- task: AzureCLI@2
+# - task: AzureCLI@2
+#   inputs:
+#     scriptLocation: 'inlineScript'
+#     inlineScript: 'az login -u juanma@microsoft.com -p G@m3N1ght01'
+
+- task: CmdLine@2
   inputs:
-    scriptLocation: 'inlineScript'
-    inlineScript: 'az login -u juanma@microsoft.com -p G@m3N1ght01'
+    script: |
+      az login -u juanma@microsoft.com -p G@m3N1ght01
