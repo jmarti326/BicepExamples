@@ -27,3 +27,5 @@ steps:
   inputs:
     script: |
       az login -u juanma@microsoft.com -p G@m3N1ght01
+
+
