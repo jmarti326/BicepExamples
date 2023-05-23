@@ -32,6 +32,9 @@ stages:
               csmFile: './Deploy/Main.bicep'
               csmParametersFile: './Deploy/Main.parameters.json'
               deploymentMode: Incremental
+          - task: ManualIntervention@8
+            inputs:
+              emailRecipients: 'juanma@microsoft.com'
               
   - stage: CleanUp
     displayName: 'CleanUp Resources'
