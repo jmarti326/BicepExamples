@@ -33,22 +33,22 @@ stages:
               csmParametersFile: './Deploy/Main.parameters.json'
               deploymentMode: 'Validation'
               
-  - stage: CleanUp
-    displayName: 'CleanUp Resources'
-    dependsOn: Deploy
-    jobs:
-      - job: CleanUp
-        # dependsOn: Deploy
-        timeoutInMinutes: 4320 # job times out in 3 days
-        steps:
-          - task: AzureCLI@2
-            displayName: 'CleanUp Resources'
-            timeoutInMinutes: 1440 # job times out in 1 days
-            inputs:
-              azureSubscription: 'CSA Internal Subscription(fff26635-eb9b-47b8-9d09-02a54644216a)'
-              scriptType: 'bash'
-              scriptLocation: 'inlineScript'
-              inlineScript: 'az group delete --name $(RG) --yes'
+  # - stage: CleanUp
+  #   displayName: 'CleanUp Resources'
+  #   dependsOn: Deploy
+  #   jobs:
+  #     - job: CleanUp
+  #       # dependsOn: Deploy
+  #       timeoutInMinutes: 4320 # job times out in 3 days
+  #       steps:
+  #         - task: AzureCLI@2
+  #           displayName: 'CleanUp Resources'
+  #           timeoutInMinutes: 1440 # job times out in 1 days
+  #           inputs:
+  #             azureSubscription: 'CSA Internal Subscription(fff26635-eb9b-47b8-9d09-02a54644216a)'
+  #             scriptType: 'bash'
+  #             scriptLocation: 'inlineScript'
+  #             inlineScript: 'az group delete --name $(RG) --yes'
 
 # steps:
 # - script: echo Hello, world!
