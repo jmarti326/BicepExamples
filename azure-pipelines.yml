@@ -23,15 +23,15 @@ stages:
             displayName: 'Deploy Bicep Files'
             inputs:
               deploymentScope: 'Resource Group'
-              azureResourceManagerConnection: $(azResourceManagerConnection)
-              subscriptionId: $(subscriptionId)
+              azureResourceManagerConnection: '$(azResourceManagerConnection)'
+              subscriptionId: '$(subscriptionId)'
               action: 'Create Or Update Resource Group'
-              resourceGroupName: $(RG)
+              resourceGroupName: '$(RG)'
               location: 'East US 2'
               templateLocation: 'Linked artifact'
               csmFile: './Deploy/Main.bicep'
               csmParametersFile: './Deploy/Main.parameters.json'
-              deploymentMode: Incremental
+              deploymentMode: 'Validation'
           - task: ManualIntervention@8
             inputs:
               emailRecipients: 'juanma@microsoft.com'
